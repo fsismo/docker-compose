@@ -1,5 +1,11 @@
 #Fork from the yaml of the PeladoNerd yaml file https://github.com/pablokbs/peladonerd/tree/master/varios/12
-version: '0.1'
+version: '3.7'
+
+networks:
+  containers:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
 
 services:
   wireguard:
@@ -44,8 +50,8 @@ services:
       TZ: 'America/Argentina/Buenos_Aires'
       WEBPASSWORD: 'S3cr3t0'
     volumes:
-      - '/opt/docker/wireguard-pihole/pihole/etc/:/etc/pihole/'
-      - '/opt/docker/wireguard-pihole/pihole/etc/:/etc/dnsmasq.d/'
+      - '/opt/docker/wireguard-pihole/pihole/etc/pihole/:/etc/pihole/'
+      - '/opt/docker/wireguard-pihole/pihole/etc/dnsmasq.d/:/etc/dnsmasq.d/'
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
