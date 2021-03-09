@@ -4,12 +4,13 @@ services:
   collabora:
     image: collabora/code:6.4.6.7
     container_name: collabora
+    ports:
+      - 9980:9980/tcp
     environment:
-      - domain=nextcloud.sismonda.com.ar>
-      - VIRTUAL_HOST=<collabora.sismonda.com.ar>
+      - domain=nextcloud.sismonda.com.ar
+      - VIRTUAL_HOST=collabora.sismonda.com.ar
       - username=admin
-      - password=S3cRet
-      - dictionaries='es_AR en_US en_GB'
+      - password=S3cr3t0
+      - dictionaries=es_ES en_GB en_US
+      - TZ=America/Argentina/Buenos_Aires
     restart: unless-stopped
-    networks:
-      - proxy-tier
