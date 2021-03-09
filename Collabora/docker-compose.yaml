@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  collabora:
+    image: collabora/code:6.4.6.7
+    container_name: collabora
+    environment:
+      - domain=nextcloud.sismonda.com.ar>
+      - VIRTUAL_HOST=<collabora.sismonda.com.ar>
+      - username=admin
+      - password=S3cRet
+      - dictionaries='es_AR en_US en_GB'
+    restart: unless-stopped
+    networks:
+      - proxy-tier
