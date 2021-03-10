@@ -8,7 +8,6 @@ services:
       - 9980:9980/tcp
     environment:
       - domain=nextcloud.sismonda.com.ar
-      - VIRTUAL_HOST=collabora.sismonda.com.ar
       - username=admin
       - password=S3cr3t0
       - dictionaries=es_ES en_GB en_US
