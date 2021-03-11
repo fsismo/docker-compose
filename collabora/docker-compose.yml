@@ -10,6 +10,6 @@ services:
       - domain=nextcloud.sismonda.com.ar
       - username=admin
       - password=S3cr3t0
-      - dictionaries=es_ES en_GB en_US
+      - dictionaries=es_AR es_ES en_GB en_US
       - TZ=America/Argentina/Buenos_Aires
     restart: unless-stopped
