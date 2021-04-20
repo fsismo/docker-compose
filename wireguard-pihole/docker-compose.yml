@@ -46,7 +46,7 @@ services:
       - "443:443/tcp"
     environment:
       TZ: 'America/Argentina/Buenos_Aires'
-      WEBPASSWORD: 'S3cr3t0'
+      WEBPASSWORD: S3cr3t0
     volumes:
       - '/opt/docker/wireguard-pihole/pihole/etc/pihole/:/etc/pihole/'
       - '/opt/docker/wireguard-pihole/pihole/etc/dnsmasq.d/:/etc/dnsmasq.d/'
