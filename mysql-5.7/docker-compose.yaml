@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: S3cr3t0
+    volumes:
+      - /var/docker-data/mysql-5.7:/var/lib/mysql
