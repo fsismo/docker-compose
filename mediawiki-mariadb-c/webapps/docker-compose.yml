@@ -1,0 +1,31 @@
+# MariaDB 10.6
+version: '3.1'
+services:
+  db:
+    image: fsismo/mariadb-10.6-focal-auto-backups:latest
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+      - MARIADB_ROOT_PASSWORD=S3cr3t0
+      - BACKUP_RETENTION=30
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/dbbackups:/var/dbbackups
+        #- ./mariadb/etc/cron.d/dbbackup:/etc/cron.d/dbbackup
+
+  mediawiki:
+    image: mediawiki
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./mediawiki/images:/var/www/html/images
+    #  - ./mediawiki/config/LocalSettings.php:/var/www/html/LocalSettings.php
+    # After initial setup, download LocalSettings.php to the same directory as
+    # this yaml and uncomment the following line and use compose to restart
+    # the mediawiki service
+    #  - ./LocalSettings.php:/var/www/html/LocalSettings.php
